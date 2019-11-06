@@ -60,19 +60,18 @@
           switch(telaAtiva) {
 
         case 2:
-
           instrucoes();
-
-          break;  
-              case 3:
-                  jogar();
-                  break;
+          break;
+                  
+        case 3:
+           jogar();
+          break;
 
       }
 
 }
 
-             function jogar(){
+    function jogar(){
         var x = 1366/2;
         var y = 1366/3;
         
@@ -194,7 +193,7 @@
             y-=70;
         }
         if(y>=305 && y<=360 && keyCode===ENTER) {
-            background('red');
+            //background('red');
             if(keyCode===ENTER){
             telaAtiva = 3;
                }

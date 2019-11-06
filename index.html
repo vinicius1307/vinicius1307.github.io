@@ -1,1 +1,141 @@
+<html>
+    <head>
+        <title>
+            JOGUINHO
+        </title>
+        <meta charset="UTF-8">
+        <script language="javascript" type="text/javascript" src="https://github.com/processing/p5.js/releases/download/0.5.16/p5.js"></script>
+        <script language="javascript" type="text/javascript" src="Jogo.js"></script>
+      
+        <style> body {padding: 0; margin: 0;} </style>
+    </head>
+    <body>
+        <script>
+        var x = 570;
+        var y = 305;
+        var telaAtiva = 1
+        
+        function setup() {
+        createCanvas(window.innerWidth, window.innerHeight);
+        
+        }
 
+        function draw() {
+        //R, G, B
+        background('#7C3D99');
+        
+        fill('white');
+        stroke('black');
+        strokeWeight(1);
+        rect(570, 305, 200, 55, 10);
+        rect(570, 375, 200, 55, 10);
+        rect(570, 445, 200, 55, 10);
+
+        textSize(120);
+        fill(225, 215, 0);
+        text('GEOQUEST', 347, 150);
+        textSize(30);
+        fill(225, 215, 0);
+        text('EXTRATIVISMO E IMPACTOS AMBIENTAIS', 387, 190);
+        
+        textSize(18);
+        fill('black');
+        text('PRESSIONE ENTER PARA SELECIONAR', 500, 280);
+
+        textSize(32);
+        fill('black');
+        
+        text('JOGAR', 617, 342);
+        text('REGRAS', 607, 412);
+        text('SAIR', 632, 482);
+        
+        noFill();
+        stroke(225, 215, 0);
+        strokeWeight(7);
+        rect(x, y, 200, 57, 10);
+          
+          switch(telaAtiva) {
+
+        case 2:
+
+          regras();
+
+          break;  
+
+      }
+
+}
+
+
+      
+        function regras() {
+
+             //R, G, B
+
+            background('#7FDBFF');
+            
+            fill('white');
+            stroke('black');
+            strokeWeight(2);
+            rect(240, 200, 850, 80, 10);
+            rect(240, 300, 850, 80, 10);
+            rect(240, 400, 850, 80, 10);
+
+             textSize(22);
+              fill('black');
+
+              text('REGRA 1:', 250, 230);
+              text('REGRA 2:', 250, 330);
+              text('REGRA 3:', 250, 430);
+              text('PRESSIONE SETA A ESQUERDA PARA VOLTAR', 400, 500)
+
+            fill('white');
+
+            stroke('red');
+
+            strokeWeight(1);
+
+
+
+            textSize(36);
+
+            fill('black');
+
+
+
+            text('INSTRUÇÕES DO GEOQUEST', 450, 55);
+           if(keyCode===LEFT_ARROW){
+             telaAtiva=1;
+           }
+         
+          }
+
+        function keyPressed() {
+        if (keyCode === DOWN_ARROW) {
+            if(y<445)
+            y+=70;
+        } else if (keyCode === UP_ARROW) {
+            if(y>305) 
+            y-=70;
+        }
+        if(y>=305 && y<=360 && keyCode===ENTER) {
+            background('red');
+            }
+        if(y>=375 && y<=430  && keyCode===ENTER) {
+          
+          
+             if (keyCode ===ENTER ){
+            telaAtiva = 2;
+            
+           }
+          
+        }
+        if(y>=445 && y<=500 && keyCode===ENTER) {
+                alert("ADEUS...");
+                window.close();
+            }
+
+        }
+        </script>
+    </body>
+</html>

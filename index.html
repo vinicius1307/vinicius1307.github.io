@@ -1,5 +1,4 @@
-<html>
-    <head>
+ <html>  
         <title>
             JOGUINHO
         </title>
@@ -14,7 +13,7 @@
         var x = 570;
         var y = 305;
         var telaAtiva = 1
-        
+        var fase1;
         function setup() {
         createCanvas(window.innerWidth, window.innerHeight);
         
@@ -63,15 +62,22 @@
           instrucoes();
           break;
                   
-        case 3:
-           jogar();
-          break;
+        /*case 3:
+          jogar () ;
+          break;*/
 
       }
 
 }
 
-        function jogar() {
+     function preload() {
+      fase1= loadBytes("https://mrdinizz.github.io");
+}
+
+
+    
+
+       /* function jogar() {
         //R, G, B
         background('#7C3D99');
         
@@ -128,7 +134,7 @@
                 }
             
         }
-}
+}*/
       
       
         function instrucoes() {
@@ -184,7 +190,7 @@
         if(y>=305 && y<=360 && keyCode===ENTER) {
             //background('red');
             if(keyCode===ENTER){
-            telaAtiva = 3;
+            telaAtiva = fase1;
                }
             }
         if(y>=375 && y<=430  && keyCode===ENTER) {
@@ -205,3 +211,4 @@
         </script>
     </body>
 </html>
+

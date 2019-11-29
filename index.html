@@ -1,4 +1,4 @@
- <html>  
+<html>  
         <title>
             JOGUINHO
         </title>
@@ -18,7 +18,6 @@
         createCanvas(window.innerWidth, window.innerHeight);
         
         }
-
         function draw() {
         //R, G, B
         background('#7C3D99');
@@ -29,7 +28,6 @@
         rect(570, 305, 200, 55, 10);
         rect(570, 375, 200, 55, 10);
         rect(570, 445, 200, 55, 10);
-
         textSize(120);
         fill(225, 215, 0);
         text('GEOQUEST', 347, 150);
@@ -40,7 +38,6 @@
         textSize(18);
         fill('black');
         text('PRESSIONE ENTER PARA SELECIONAR', 500, 280);
-
         textSize(32);
         fill('black');
         
@@ -57,7 +54,6 @@
         rect(x, y, 200, 57, 10);
           
           switch(telaAtiva) {
-
         case 2:
           instrucoes();
           break;
@@ -66,13 +62,13 @@
           
           break;
       }
-
 }
-
+   
+    
+       
+      
         function instrucoes() {
-
              //R, G, B
-
             background('#7FDBFF');
             
             fill('white');
@@ -81,36 +77,23 @@
             rect(240, 200, 850, 80, 10);
             rect(240, 300, 850, 80, 10);
             rect(240, 400, 850, 80, 10);
-
              textSize(22);
               fill('black');
-
               text('INSTRUÇÃO 1:', 250, 230);
               text('INSTRUÇÃO 2:', 250, 330);
               text('INSTRUÇÃO 3:', 250, 430);
               text('PRESSIONE SETA A ESQUERDA PARA VOLTAR', 400, 500)
-
             fill('white');
-
             stroke('red');
-
             strokeWeight(1);
-
-
-
             textSize(36);
-
             fill('black');
-
-
-
             text('INSTRUÇÕES DO GEOQUEST', 450, 55);
            if(keyCode===LEFT_ARROW){
              telaAtiva=1;
            }
          
          }
-
         function keyPressed() {
         if (keyCode === DOWN_ARROW) {
             if(y<445)
@@ -121,22 +104,22 @@
         }
         if(y>=305 && y<=360 && keyCode===ENTER) {
             //background('red');
-          
+           
             }
         if(y>=375 && y<=430  && keyCode===ENTER) {
           
           if(keyCode===ENTER){
             telaAtiva = 2
+               
+            }
+           
           
-          }
         }
         if(y>=445 && y<=500 && keyCode===ENTER) {
                 alert("ADEUS...");
                 window.close();
             }
-
         }
         </script>
     </body>
 </html>
-

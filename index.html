@@ -112,12 +112,6 @@
             frameRate(60);
             }
          
-                   
-                   /* if(vidas==0) {
-                       telaAtiva= fim ();
-                        window.location.reload();
-                    }*/
-          
             function fase1 () {
                 background('#7C3D99');
                 fill('white');
@@ -678,21 +672,26 @@
                                 if(telaAtiva==5) {
                                     if(x>=0 && x<larg/3 && keyCode===ENTER) {
                                         vidas--;
+                                        alert("Resposta errada");
+                                        telaAtiva=6;
                                     }
                                     if(x>=larg/3 && x<2*larg/3 && keyCode===ENTER) {
                                         alert("PARABENS");
+                                      telaAtiva=6;
                                     }
                                     if(x>=2*larg/3 && x<=larg && keyCode===ENTER) {
-                                            vidas--;
+                                           vidas--;
+                                           alert("Resposta errada");
+                                          telaAtiva=6;
                                     }
                                 }
                             }
                         }
                     }
                 }
-             }
-          }         
-
+              }
+            }         
+ 
       
         function instrucoes() {
              //R, G, B

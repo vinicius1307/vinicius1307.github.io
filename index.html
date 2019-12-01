@@ -12,7 +12,7 @@
         <script>
         var x = 570;
         var y = 305;
-        var telaAtiva = 1
+        var telaAtiva = 0
         
         function setup() {
         createCanvas(window.innerWidth, window.innerHeight);
@@ -54,17 +54,33 @@
         rect(x, y, 200, 57, 10);
           
           switch(telaAtiva) {
-        case 2:
+        case -1:
           instrucoes();
           break;
                   
-        case 3:
-          fase
+        case 1:
+          fase1();
+          break;
+          
+        case 2:
+          fase2();
+          break;
+          
+          case 3:
+          fase3();
+          break;
+          
+          case 4:
+          fase4();
+          break;
+          
+          case 5:
+          fase5();
           break;
       }
 }
    
-     var x = 30;
+    
             var v = 0;
             var i=0;
             var tempo=30;
@@ -73,7 +89,7 @@
             var larg=window.innerWidth;
             var LIFE=[], TERRA=[];
             vidas=3;
-            fase=1;
+           // fase=1;
             function preload() {
                 for(a=0; a<5; a++) {
                     if(a<3) {
@@ -91,27 +107,13 @@
             createCanvas(larg, alt);
             frameRate(60);
             }
-           // function draw() {
-                    if(fase==1) {
-                        fase1 ();
-                    }
-                    if(fase==2) {
-                        fase2 ();
-                    }
-                    if(fase==3) {
-                        fase3 ();
-                    }
-                    if(fase==4) {
-                        fase4 ();
-                    }
-                    if(fase==5) {
-                        fase5 ();
-                    }
+         
+                   
                     if(vidas==0) {
-                        fim ();
+                       telaAtiva= fim ();
                         window.location.reload();
                     }
-           // }
+          
             function fase1 () {
                 background('#7C3D99');
                 fill('white');
@@ -145,9 +147,9 @@
                             tempo--;
                         }
                         else {
-                            fase++;
+                            telaAtiva++;
                             vidas--;
-                            tempo=31;
+                            tempo=30;
                             v=0;
                         }
                     }
@@ -158,6 +160,8 @@
                             i=0;
                         }
                     }
+               
+              
                 fill('black');
                 textSize(30);
                 text('ACRE, TOCANTINS,', 0.0585*larg, 0.864*alt);
@@ -226,7 +230,7 @@
                             tempo--;
                         }
                         else {
-                            fase++;
+                           telaAtiva++;
                             vidas--;
                             tempo=31;
                             v=0;
@@ -309,9 +313,9 @@
                             tempo--;
                         }
                         else {
-                            fase++;
+                           telaAtiva++;
                             vidas--;
-                            tempo=31;
+                            tempo=30;
                             v=0;
                         }
                     }
@@ -395,9 +399,9 @@
                             tempo--;
                         }
                         else {
-                            fase++;
+                            telaAtiva++;
                             vidas--;
-                            tempo=31;
+                            tempo=30;
                             v=0;
                         }
                     }
@@ -485,7 +489,7 @@
                             tempo--;
                         }
                         else {
-                            fase++;
+                            telaAtiva++;
                             vidas--;
                             tempo=31;
                             v=0;
@@ -544,92 +548,92 @@
                 fill(225, 215, 0);
                 text('FIM DE JOGO', 0.34*larg, 0.47*alt);
             }
-            function keyPressed () {
-                if(fase==1) {
+           function keyPressed () {
+                if(telaAtiva==1) {
                     if(x>=0 && x<larg/3 && keyCode===ENTER) {
                         vidas--;
-                        fase++;
+                        telaAtiva++;
                         tempo=30;
                         v=0;
                     }
                     if(x>=larg/3 && x<2*larg/3 && keyCode===ENTER) {
                         alert("PARABENS");
-                        fase++;
+                       telaAtiva++;
                         tempo=30;
                         v=0;
                     }
                     if(x>=2*larg/3 && x<=larg && keyCode===ENTER) {
                         vidas--;
-                        fase++;
+                       telaAtiva++;
                         tempo=30;
                         v=0;
                     }
                 }
                 else {
-                    if(fase==2) {
+                    if(telaAtiva==2) {
                         if(x>=0 && x<larg/3 && keyCode===ENTER) {
                             vidas--;
-                            fase++;
+                            telaAtiva++;
                             tempo=30;
                             v=0;
                         }
                         if(x>=larg/3 && x<2*larg/3 && keyCode===ENTER) {
                             vidas--;
-                            fase++;
+                            telaAtiva++;
                             tempo=30;
                             v=0;
                         }
                         if(x>=2*larg/3 && x<=larg && keyCode===ENTER) {
                             alert("PARABENS");
-                            fase++;
+                            telaAtiva++;
                             tempo=30;
                             v=0;
                         }
                     }
                     else {
-                        if(fase==3) {
+                        if(telaAtiva==3) {
                             if(x>=0 && x<larg/3 && keyCode===ENTER) {
                                 vidas--;
-                                fase++;
+                                telaAtiva++;
                                 tempo=30;
                                 v=0;
                             }
                             if(x>=larg/3 && x<2*larg/3 && keyCode===ENTER) {
                                 vidas--;
-                                fase++;
+                                telaAtiva++;
                                 tempo=30;
                                 v=0;
                             }
                             if(x>=2*larg/3 && x<=larg && keyCode===ENTER) {
                                 alert("PARABENS");
-                                fase++;
+                                telaAtiva++;
                                 tempo=30;
                                 v=0;
                             }
                         }
                         else {
-                            if(fase==4) {
+                            if(telaAtiva==4) {
                                 if(x>=0 && x<larg/3 && keyCode===ENTER) {
                                     alert("PARABENS");
-                                    fase++;
+                                    telaAtiva++;
                                     tempo=30;
                                     v=0;
                                 }
                                 if(x>=larg/3 && x<2*larg/3 && keyCode===ENTER) {
                                     vidas--;
-                                    fase++;
+                                    telaAtiva++;
                                     tempo=30;
                                     v=0;
                                 }
                                 if(x>=2*larg/3 && x<=larg && keyCode===ENTER) {
                                     vidas--;
-                                    fase++;
+                                    telaAtiva++;
                                     tempo=30;
                                     v=0;
                                 }
                             }
                             else {
-                                if(fase==5) {
+                                if(telaAtiva==5) {
                                     if(x>=0 && x<larg/3 && keyCode===ENTER) {
                                         vidas--;
                                     }
@@ -644,7 +648,7 @@
                         }
                     }
                 }
-            }           
+            }          
                 
                 
                 
@@ -675,7 +679,7 @@
             fill('black');
             text('INSTRUÇÕES DO GEOQUEST', 450, 55);
            if(keyCode===LEFT_ARROW){
-             telaAtiva=1;
+             telaAtiva=0;
            }
          
          }
@@ -690,15 +694,14 @@
         if(y>=305 && y<=360 && keyCode===ENTER) {
             //background('red');
                 if(keyCode===ENTER){
-            telaAtiva = 3
-               
-            }
+                      telaAtiva=1;
+                }
            
             }
         if(y>=375 && y<=430  && keyCode===ENTER) {
           
           if(keyCode===ENTER){
-            telaAtiva = 2
+            telaAtiva = -1;
                
             }
            

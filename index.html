@@ -77,6 +77,10 @@
           case 5:
           fase5();
           break;
+          
+           case 6:
+          fim();
+          break;
       }
 }
    
@@ -109,10 +113,10 @@
             }
          
                    
-                    if(vidas==0) {
+                   /* if(vidas==0) {
                        telaAtiva= fim ();
                         window.location.reload();
-                    }
+                    }*/
           
             function fase1 () {
                 background('#7C3D99');
@@ -140,6 +144,8 @@
                     strokeWeight(2);
                     rect(2*larg/3, larg/3, larg/3, alt, 10);
                 }
+              
+              
                 //TEMPO:
                     fr=frameCount;
                     if(fr%60==0) {
@@ -317,6 +323,9 @@
                             vidas--;
                             tempo=30;
                             v=0;
+                            if(vidas==0) {
+                              telaAtiva= 6;
+                            }
                         }
                     }
                 //LIFE:
@@ -403,6 +412,9 @@
                             vidas--;
                             tempo=30;
                             v=0;
+                            if(vidas==0) {
+                              telaAtiva= 6;
+                            }
                         }
                     }
                 //LIFE:
@@ -491,8 +503,11 @@
                         else {
                             telaAtiva++;
                             vidas--;
-                            tempo=31;
+                            tempo=30;
                             v=0;
+                            if(vidas==0) {
+                              telaAtiva= 6;
+                            }
                         }
                     }
                 //LIFE:
@@ -548,7 +563,34 @@
                 fill(225, 215, 0);
                 text('FIM DE JOGO', 0.34*larg, 0.47*alt);
             }
-           function keyPressed () {
+          function keyPressed () {
+             if(telaAtiva==0) {
+                 if (keyCode === DOWN_ARROW) {
+                    if(y<445)
+                       y+=70;
+                 } else if (keyCode === UP_ARROW) {
+                     if(y>305) 
+                       y-=70;
+                   }
+                if(y>=305 && y<=360 && keyCode===ENTER) {
+                    //background('red');
+                    if(keyCode===ENTER){
+                      telaAtiva=1;
+                    }
+               }
+              if(y>=375 && y<=430  && keyCode===ENTER) {
+          
+                if(keyCode===ENTER){
+                 telaAtiva = -1;   
+                 }
+              }
+              if(y>=445 && y<=500 && keyCode===ENTER) {
+                alert("ADEUS...");
+                window.close();
+              }
+           }
+            
+            
                 if(telaAtiva==1) {
                     if(x>=0 && x<larg/3 && keyCode===ENTER) {
                         vidas--;
@@ -648,13 +690,8 @@
                         }
                     }
                 }
-            }          
-                
-                
-                
-                
-                
-       
+            }         
+
       
         function instrucoes() {
              //R, G, B
@@ -683,35 +720,7 @@
            }
          
          }
-        function keyPressed() {
-        if (keyCode === DOWN_ARROW) {
-            if(y<445)
-            y+=70;
-        } else if (keyCode === UP_ARROW) {
-            if(y>305) 
-            y-=70;
-        }
-        if(y>=305 && y<=360 && keyCode===ENTER) {
-            //background('red');
-                if(keyCode===ENTER){
-                      telaAtiva=1;
-                }
-           
-            }
-        if(y>=375 && y<=430  && keyCode===ENTER) {
-          
-          if(keyCode===ENTER){
-            telaAtiva = -1;
-               
-            }
-           
-          
-        }
-        if(y>=445 && y<=500 && keyCode===ENTER) {
-                alert("ADEUS...");
-                window.close();
-            }
-        }
+      
         </script>
     </body>
 </html>
